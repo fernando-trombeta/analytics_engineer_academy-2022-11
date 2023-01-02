@@ -1,7 +1,7 @@
 with
     source_suppliers as (
         select
-            cast(supplier_id as int) id_fornecedor				
+            cast(supplier_id as int) as id_fornecedor				
             , cast(company_name as string) as nome_do_fornecedor	
             , cast(contact_name as string) as contato_fornecedor		
             , cast(contact_title as	string) as titulo_de_cortesia_fornecedor

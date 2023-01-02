@@ -13,8 +13,9 @@ with
         select *
         from {{ ref('stg_erp__fornecedores') }}
     )  
-    --abaixo foi criado um join para as 3 tabelas acima
-
+    --abaixo foi criado um JOIN para as 3 tabelas acima
+    --conceito de desnormalização: 3 tabelas vão virar uma só tabela dimensão enriquecida
+    
     , uniao_tabelas as (
         select 
             produtos.id_produto
@@ -53,3 +54,12 @@ with
 
     select *
     from transformacoes
+
+    /*FUNÇÃO OVER:
+        - A função **OVER** cria uma “janela” dentro da tabela 
+        e dentro da coluna especificada, por exemplo “id_produto”.
+    ORDER BY: id_produto = criar uma ordenação do menor para o maior
+    ROW_NUMBER:
+        - dá o número 1 para a primeira linha
+        - Dá o número 2 para a segunda linha e assim sucessivamente…*/
+

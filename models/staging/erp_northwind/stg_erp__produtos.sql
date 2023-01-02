@@ -5,7 +5,7 @@ with
             , cast(supplier_id as int) as id_fornecedor				
             , cast(category_id as int) as id_categoria
             , cast(product_name as string) as nome_produto		
-            , cast(quantity_per_unit as string) quantidade_por_unidade
+            , cast(quantity_per_unit as string) as quantidade_por_unidade
             , cast(unit_price as numeric) as preco_por_unidade	
             , cast(units_in_stock as int) as unidades_em_estoque
             , cast(units_on_order as int) as unidades_por_ordem
@@ -14,7 +14,7 @@ with
                 when discontinued = 1 then true
                 else false
             end as is_descontinuado	
-            --discontinued é 0 ou 1, trasnformou em boolean (true and false)	
+            --discontinued é 0 ou 1, trasnformou em boolean (true and false)
         from {{ source('erp', 'products') }}
     )
 
