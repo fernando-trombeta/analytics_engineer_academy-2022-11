@@ -81,7 +81,7 @@ with
 -- onde são feitas a métricas:
     , transformacoes as (
         select
-            /* 1° forma de criar uma chave p/ tabela: 
+            /* 1° forma de criar uma chave p/ tabela usando CONCATENAÇÃO: 
             id_pedido || '-' || fk_produto as sk_venda  */
 
 
