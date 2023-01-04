@@ -81,7 +81,13 @@ with
 -- onde são feitas a métricas:
     , transformacoes as (
         select
-            *
+            /* 1° forma de criar uma chave p/ tabela: 
+            id_pedido || '-' || fk_produto as sk_venda  */
+
+
+            /* 2° forma de criar uma chave p/ tabela, usando o dbt packges*/
+            {{ dbt_utils.surrogate_key(['id_pedido', 'fk_produto']) }} as sk_venda
+            , *
             , case 
                 when desconto > 0 then true 
                 when desconto = 0 then false 

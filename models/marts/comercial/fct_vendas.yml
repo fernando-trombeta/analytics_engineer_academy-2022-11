@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: fct_vendas
+    description: Tabela com os fatos de vendas da northwind.
+    columns:
+      - name: sk_venda
+        description: É a primary key da dimensão de produtos.
+        tests:
+          - unique
+          - not_null
