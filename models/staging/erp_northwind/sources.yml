@@ -8,19 +8,37 @@ sources:
       - name: orders
         description: Uma linha por pedido. Inclui pedidos cancelados e deletados.
         columns:
-        - name: order_id
-          description: Chave primaria da tabela de ordens.
-          tests:
-            - unique
-            - not_null
-
-
+          - name: order_id
+            description: Chave primária da tabela de ordens.
+            tests:
+              - unique
+              - not_null
+      
+      - name: order_details
+        description: Detalhe de item linha para cada pedido da tabela ordens.
+      
       - name: products
-    
+        description: Tabela com os produtos comercializados pela Northwind.
+
       - name: categories
-       
+        description: Tabela com as categorias dos produtos comercializados pela Northwind.
+        freshness:
+          warn_after:
+            count: 24
+            period: hour
+          warn_after:
+            count: 36
+            period: hour
+        loaded_at_field: el_loaded_raw
+
       - name: suppliers
+        description: Fornecedores dos produtos comercializados pela Northwind.
+
+      - name: employees
+        description: Tabela com informações dos funcionários da Northwind e seus gerentes.
 
       - name: shippers
+        description: Transportadoras utilizadas na realização das entregas dos pedidos fechados.
 
-      - name: region
+      - name: customers
+        description: Tabela com informações dos clientes da Northwind.
